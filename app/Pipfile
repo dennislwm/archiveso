@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+archivebox = "==0.6.2"
+flask = "==1.0.2"
+
+[dev-packages]
+pytest = "==6.2.4"
+pytest-flask = "==1.2.0"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

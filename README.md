@@ -1,10 +1,10 @@
-# shapeup_archiveso
+# archiveso
 
 This project is an end-to-end application, using the Shape Up metholodogy, that consist of (1) static no-code front-end and; (2) stateless Flask back-end that serves request to and from an instance of ArchiveBox.
 
 <!-- TOC -->
 
-- [shapeup_archiveso](#shapeup_archiveso)
+- [archiveso](#archiveso)
 - [Things to learn and research](#things-to-learn-and-research)
 - [Shaping](#shaping)
 - [Building](#building)
