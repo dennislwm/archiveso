@@ -18,8 +18,8 @@ Base time: 1 workday (Max: 2)
 
 ## Hill chart
 ```
- +
-. .
+ .
+. +
 0-1
 ```
 

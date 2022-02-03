@@ -10,4 +10,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "FLASK_ENV=production", "FLASK_APP=main", "PYTHONPATH=./:./src/archiveso" "python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=8080" ]
+EXPOSE 8080
+
+ENV FLASK_ENV=development
+ENV FLASK_APP=main
+ENV PYTHONPATH=./:./src/archiveso
+CMD ["python3", "main.py"]

@@ -17,7 +17,7 @@ Base time: 1 workday (Max: 2)
 ## Hill chart
 ```
  .
-+ .
+. +
 0-1
 ```
 
@@ -51,18 +51,29 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "FLASK_ENV=production", "FLASK_APP=main", "PYTHONPATH=./:./src/archiveso" "python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=8080" ]
+EXPOSE 8080
+
+ENV FLASK_ENV=development
+ENV FLASK_APP=main
+ENV PYTHONPATH=./:./src/archiveso
+CMD ["python3", "main.py"]
 ```
 
 > Note: We are not using multi-stage Docker build because Python is an interpreted language, unlike Java, that is a compiled language which produces an executable file from code.
 
-2. The `requirements.txt` file is generated each time we run the `make docker_build` command.
+2. Generate `requirements.txt` file.
 
-Edit the file `Makefile` and insert the following lines of code:
+The `requirements.txt` file is generated each time we run the `make docker_build` command. Edit the file `Makefile` and insert the following lines of code:
 
 ```makefile
 docker_build: install_freeze
 	DOCKER_BUILDKIT=1 docker build -t archiveso .
+
+docker_clean:
+	docker image prune -f
+
+docker_run: docker_build docker_clean
+	docker run --rm -d -p 80:8080 --name=objArchiveso archiveso
 ...
 install_freeze:
 	pip3 install pipreqs
@@ -71,3 +82,13 @@ install_freeze:
 ```
 
 According to [Krav2022], `pipreqs` generates a `requirements.txt` file based on imports in the project. The number of dependencies may not be the same as the `Pipfile` or `pip3 freeze`, i.e. `pip3 freeze` > `Pipfile` >= `pipreqs`.
+
+3. Edit `main.py` file.
+
+Edit the file `main.py` and replace the line `app = create_app()` with the `__main__` block as follows:
+
+```py
+if __name__ == "__main__":
+    app = create_app()
+    app.run(host="0.0.0.0", port=8080)
+```

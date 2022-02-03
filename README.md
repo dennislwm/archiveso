@@ -36,8 +36,8 @@ As this is the first iteration of the project, it is suggested to allow a maximu
 
 - [X] [Create a single REST endpoint with Python](doc/shape01.md#create-a-single-rest-endpoint-with-python) (2)
 - [X] [Create test cases for each REST endpoint with Python](doc/shape02.md#create-test-cases-for-each-rest-endpoint-with-python) (1)
-- [ ] [Create a Dockerfile and test it locally](doc/shape03.md#create-a-dockerfile-and-test-it-locally) (1)
-- [ ] Require status checks to pass before merging PR (1)
+- [X] [Create a Dockerfile and test it locally](doc/shape03.md#create-a-dockerfile-and-test-it-locally) (1)
+- [ ] Require status checks to pass before merging PR (2)
 - [ ] Build, test, tag and upload our web app image using CI (2)
 - [ ] Create a Lowdefy front-end for our web service (1)
 - [ ] Expose our web app using Cloudflare Tunnel (1)
@@ -93,3 +93,4 @@ The following resources were used as a single-use reference.
 | [About fixtures - Full pytest documentation](https://docs.pytest.org/en/latest/explanation/fixtures.html) | pytest | 2022 [pyte2022]
 | GitHub Repo: [Flask tutorial](https://github.com/pallets/flask/tree/fdac8a5404e3e3a316568107a293f134707c75bb/examples/tutorial) | Pallets Projects | 2022 [Pall2022]
 | [pipreqs 0.4.11 - Project description](https://pypi.org/project/pipreqs) | Vadim Kravcenko | 2022 [Krav2022]
+| [Autodocumenting Makefiles](https://daniel.feldroy.com/posts/autodocumenting-makefiles) | Daniel Greenfeld | 2022 [Gree2022]

@@ -148,11 +148,11 @@ You can use `make` to automate different parts of developing a Python app, like 
 1. Create a file `Makefile` in the `app` folder. Add the following lines to the file:
 
 ```makefile
-.PHONY: default install install_pipfile shell shell_clean
+.PHONY: default install_new install_pipfile shell shell_clean
 
 default: test
 
-install:
+install_new:
 	pipenv install archivebox==0.6.2 flask==1.0.2
 
 install_pipfile:
