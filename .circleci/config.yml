@@ -10,7 +10,6 @@ version: 2.1
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
 jobs:
   static-analysis:
-    working_directory: ~/project/app
     docker:
       - image: cimg/base:stable
     steps:
@@ -21,10 +20,10 @@ jobs:
           command: pwd && ls -lart
       - run:
           name: "Build image"
-          command: make docker_build
+          command: cd app && make docker_build
       - run:
           name: "Run static analysis"
-          command: docker-compose up -d
+          command: cd app && docker-compose up -d
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
