@@ -10,7 +10,7 @@ version: 2.1
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
 jobs:
   static-analysis:
-    working_directory: ~/app
+    working_directory: ~/project/app
     docker:
       - image: cimg/base:stable
     steps:
