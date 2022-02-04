@@ -14,6 +14,7 @@ docker_run: docker_build docker_clean
 install_freeze:
 	pip3 install pipreqs
 	pipreqs --ignore tests . --force
+	echo "prospector==1.6.0" >> ./requirements.txt
 	pip3 uninstall -y pipreqs
 	
 install_new: 
