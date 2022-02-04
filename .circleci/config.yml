@@ -17,6 +17,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: "Debug"
+          command: pwd
+      - run:
           name: "Build image"
           command: make docker_build
       - run:
