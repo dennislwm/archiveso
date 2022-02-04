@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+  # Pipeline actions
+  archiveso:
+    image: archiveso:latest
+    entrypoint: /usr/local/bin/prospector
