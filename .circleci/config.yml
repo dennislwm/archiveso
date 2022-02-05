@@ -38,6 +38,7 @@ jobs:
           name: "Publish image to Docker Hub"
           command: |
               echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+              docker tag archiveso:latest $DOCKERHUB_USERNAME/archiveso:latest
               docker push $DOCKERHUB_USERNAME/archiveso:latest
 
 # Invoke jobs via workflows
