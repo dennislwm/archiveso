@@ -1,6 +1,6 @@
 # archiveso
 
-This project is an end-to-end application, using the Shape Up metholodogy, that consist of (1) static no-code front-end and; (2) stateless Flask back-end that serves request to and from an instance of ArchiveBox.
+This project is an end-to-end application, using the Shape Up metholodogy, that consist of (1) static no-code front-end; (2) stateless Flask back-end that serves request to and from an instance of ArchiveBox; and (3) CI pipeline to test and deploy a custom Docker image.
 
 <!-- TOC -->
 
@@ -30,19 +30,32 @@ In no particular order, my plan is to use the following resources to learn and r
 
 As shaping and building have independent cycles, we will define shaping as any work that does not involve implementation of code. This work may include evaluation, feasibility, comparison, research, etc.
 
-We set a time constraint of 10 workdays, for shaping, and an additional 10 workdays for building. Hence, the total time for this project is approximately 20 workdays with a cool-down of 2 workdays.
-
-As this is the first iteration of the project, it is suggested to allow a maximum of 44 workdays to complete the project. The project can be broken into independent scopes below (estimated workday).
+We set a time constraint of 10 workdays, for shaping, and an additional 9 workdays for building. Hence, the total time for this project is approximately 20 workdays with a cool-down of 2 workdays.
 
 - [X] [Create a single REST endpoint with Python](doc/shape01.md#create-a-single-rest-endpoint-with-python) (2)
+  - [Create a virtual environment](doc/shape01.md#create-a-virtual-environment)
+  - [Install dependencies](doc/shape01.md#install-dependencies)
+  - [Create a Makefile](doc/shape01.md#create-a-makefile)
+  - [Create a Main Application](doc/shape01.md#create-a-main-application)
 - [X] [Create test cases for each REST endpoint with Python](doc/shape02.md#create-test-cases-for-each-rest-endpoint-with-python) (1)
+  - [Test Driven Development](doc/shape02.md#test-driven-development)
+  - [Install developer dependencies](doc/shape02.md#install-developer-dependencies)
+  - [Create a test file](doc/shape02.md#create-a-test-file)
 - [X] [Create a Dockerfile and test it locally](doc/shape03.md#create-a-dockerfile-and-test-it-locally) (1)
-- [X] Require status checks to pass before merging PR (2)
-- [ ] Build, test, tag and upload our web app image using CI (2)
+  - [Create a Dockerfile](doc/shape03.md#create-a-dockerfile)
+- [X] [Require status checks to pass before merging PR](doc/shape04.md#require-status-checks-to-pass-before-merging-pr) (2)
+  - [Status Checks](doc/shape04.md#status-checks)
+  - [Continuous Integration](doc/shape04.md#continuous-integration)
+  - [CircleCI](doc/shape04.md#circleci)
+  - [Travis CI](doc/shape04.md#travis-ci)
+- [ ] [Build, test, tag and upload our web app image using CI](doc/shape05.md#build-test-tag-and-upload-our-web-app-image-using-ci) (1)
+  - [Workflows](doc/shape05.md#workflows)
+  - [Sequential job execution with dependency](doc/shape05.md#sequential-job-execution-with-dependency)
+  - [Create an access token for Docker Hub](doc/shape05.md#create-an-access-token-for-docker-hub)
 - [ ] Create a Lowdefy front-end for our web service (1)
 - [ ] Expose our web app using Cloudflare Tunnel (1)
 
-This project started on 26-Jan-2022 and is a work-in-progress.
+This project started on 26-Jan-2022 and is a work-in-progress. The expected completion date is 24-Feb-2022, with an expected shaping completion at 11-Feb-2022 (includes a 2-day cooldown).
 
 ---
 # Building
@@ -96,3 +109,5 @@ The following resources were used as a single-use reference.
 | [Autodocumenting Makefiles](https://daniel.feldroy.com/posts/autodocumenting-makefiles) | Daniel Greenfeld | 2022 [Gree2022]
 | [GitHub CI/CD tutorial: Setting up continuous integration](https://circleci.com/blog/setting-up-continuous-integration-with-github) | Stanley Ndagi | 2022 [Ndag2022]
 | [Python static code analysis tools](https://pawamoy.github.io/posts/python-static-code-analysis-tools) | Timothy Mazzucotelli | 2017 [Mazz2017]
+| [Build and Deploy only on PR request Accept](https://discuss.circleci.com/t/build-and-deploy-only-on-pr-request-accept/38846) | CircleCI | 2021 [Circ2021]
+| [Using CircleCI workflows to replicate Docker Hub automated builds](https://circleci.com/blog/using-circleci-workflows-to-replicate-docker-hub-automated-builds/) | Jonathan Cardoso | 2020 [Card2020]
