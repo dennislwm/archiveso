@@ -41,9 +41,9 @@ workflows:
   static-analysis-workflow:
     jobs:
       ...
-      - deploy-image
-        requires:
-          - static-analysis
+      - deploy-image:
+          requires:
+            - static-analysis
 ```
 
 2. In the same file, add the following lines under `jobs`:
@@ -65,7 +65,8 @@ jobs:
           name: "Publish image to Docker Hub"
           command: |
               echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-              docker push archiveso:latest
+              docker tag archiveso:latest $DOCKERHUB_USERNAME/archiveso:latest
+              docker push $DOCKERHUB_USERNAME/archiveso:latest
 ```
 
 3. We need to create new CircleCI environment variables with our Docker Hub username and personal access token. If multiple projects are going to push images to Docker Hub, the recommended way is to use **Contexts**.
