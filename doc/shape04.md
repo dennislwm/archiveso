@@ -15,16 +15,14 @@
 
 # Constraint
 
-Base time: 1 workday (Max: 2)
+Base time: 2 workday (Max: 4)
 
 ## Hill chart
 ```
-    +
-   . .
-  .   .
- .     .
-.       .
-0-1-2-3-4
+  .
+ . .
+.   +
+0-1-2
 ```
 
 # Place, Affordance, Connection
