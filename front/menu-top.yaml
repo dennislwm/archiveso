@@ -1,11 +1,11 @@
 id: menu_top
 links:
-  - id: menulink_get_quote
+  - id: menulink_get_status
     type: MenuLink
     properties:
       icon: AlertOutlined
       title: Get quote
-    pageId: page_get_quote
+    pageId: page_get_status
   - id: menulink_welcome
     type: MenuLink
     properties:

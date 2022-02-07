@@ -70,12 +70,12 @@ pages:
 ```yml
 id: menu_top
 links:
-  - id: menulink_get_quote
+  - id: menulink_get_status
     type: MenuLink
     properties:
       icon: AlertOutlined
       title: Get quote
-    pageId: page_get_quote
+    pageId: page_get_status
   - id: menulink_welcome
     type: MenuLink
     properties:
@@ -84,7 +84,7 @@ links:
     pageId: page_welcome
 ```
 
-This file exposes two menu links **Get quote** and **Home** with reference ids `menulink_get_quote` and `menulink_welcome`. You can customize each [menu `icon`](https://docs.lowdefy.com/Menu#title) under `properties`.
+This file exposes two menu links **Get quote** and **Home** with reference ids `menulink_get_status` and `menulink_welcome`. You can customize each [menu `icon`](https://docs.lowdefy.com/Menu#title) under `properties`.
 
 3. Create a file `page-get-status.yaml` and add the following code:
 
