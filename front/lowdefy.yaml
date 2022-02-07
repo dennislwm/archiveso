@@ -11,5 +11,5 @@ menus:
   - _ref: menu-top.yaml
 
 pages:
-  - _ref: page-get-quote.yaml
+  - _ref: page-get-status.yaml
   - _ref: page-welcome.yaml
