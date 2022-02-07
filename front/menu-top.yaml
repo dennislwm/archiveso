@@ -4,7 +4,7 @@ links:
     type: MenuLink
     properties:
       icon: AlertOutlined
-      title: Get quote
+      title: Get status
     pageId: page_get_status
   - id: menulink_welcome
     type: MenuLink
