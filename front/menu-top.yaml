@@ -1,0 +1,14 @@
+id: menu_top
+links:
+  - id: menulink_get_status
+    type: MenuLink
+    properties:
+      icon: AlertOutlined
+      title: Get quote
+    pageId: page_get_status
+  - id: menulink_welcome
+    type: MenuLink
+    properties:
+      icon: HomeOutlined
+      title: Home
+    pageId: page_welcome
