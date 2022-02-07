@@ -62,6 +62,10 @@ We set a time constraint of 9 workdays, for shaping, and an additional 9 workday
   - [Sequential job execution with dependency](doc/shape05.md#sequential-job-execution-with-dependency)
   - [Create an access token for Docker Hub](doc/shape05.md#create-an-access-token-for-docker-hub)
 - [ ] [Create a front-end for our web service](doc/shape06.md#create-a-lowdefy-front-end-for-our-web-service) (2)
+  - [Lowdefy Structure](doc/shape06.md#lowdefy-structure)
+  - [Deploy to Netlify](doc/shape06.md#deploy-to-netlify)
+    - [Requirements](doc/shape06.md#requirements)
+    - [Running on a Local Server](doc/shape06.md#running-on-a-local-server)
 - [ ] Expose our web app using Cloudflare Tunnel (1)
 
 This project started on 26-Jan-2022 and is a work-in-progress. The expected completion date is 24-Feb-2022, with an expected shaping completion at 11-Feb-2022 (includes a 2-day cooldown).

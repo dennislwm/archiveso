@@ -1,0 +1,29 @@
+id: page_get_status
+type: PageHeaderMenu
+
+requests:
+  - id: http_get_status
+    type: AxiosHttp
+    connectionId: conn_my_api
+    properties:
+      url: /articles?top=1
+
+events:
+  onEnter:
+    - id: event_get_status
+      type: Request
+      params: http_get_status
+
+blocks:
+  - id: md_rest_data
+    type: Markdown
+    properties:
+      content:
+        _string.concat:
+          - |
+            ```yaml
+          - _yaml.stringify:
+              - _log:
+                  _request: http_get_status
+          - |
+            ```
