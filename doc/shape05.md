@@ -5,6 +5,7 @@
 - [Build, test, tag and upload our web app image using CI](#build-test-tag-and-upload-our-web-app-image-using-ci)
 - [Constraint](#constraint)
   - [Hill chart](#hill-chart)
+- [Place, Affordance, Connection](#place-affordance-connection)
 - [Workflows](#workflows)
 - [Sequential job execution with dependency](#sequential-job-execution-with-dependency)
 - [Create an access token for Docker Hub](#create-an-access-token-for-docker-hub)
@@ -21,6 +22,14 @@ Base time: 1 workday (Max: 2)
 . +
 0-1
 ```
+
+# Place, Affordance, Connection
+
+* Places users can navigate
+  * Docker Hub e.g. `https://hub.docker.com/repository/docker/dennislwm/archiveso`
+  
+* Affordance users can act
+  * Docker pull `docker pull dennislwm/archiveso:latest`
 
 # Workflows
 

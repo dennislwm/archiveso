@@ -5,6 +5,7 @@
 - [Create a Lowdefy front-end for our web service](#create-a-lowdefy-front-end-for-our-web-service)
 - [Constraint](#constraint)
   - [Hill chart](#hill-chart)
+- [Place, Affordance, Connection](#place-affordance-connection)
 - [Lowdefy Structure](#lowdefy-structure)
 - [Deploy to Netlify](#deploy-to-netlify)
   - [Requirements](#requirements)
@@ -23,6 +24,16 @@ Base time: 2 workday (Max: 4)
 .   .
 0-1-2
 ```
+
+# Place, Affordance, Connection
+
+* Places users can navigate
+  * Lowdefy app e.g. `https://archiveso.netlify.app`
+    * Get status `/page_get_status`
+    * Home `/page_welcome`
+
+* Connection users are taken to
+  * Get status --> Lowdefy --> `/page_get_status` --> Docker --> `main.py` --> HTTP response
 
 # Lowdefy Structure
 
