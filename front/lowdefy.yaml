@@ -5,7 +5,7 @@ connections:
   - id: conn_my_api
     type: AxiosHttp
     properties:
-      baseURL: https://dev.to/api
+      baseURL: https://archiveso.markit.work
 
 menus:
   - _ref: menu-top.yaml

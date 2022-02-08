@@ -14,10 +14,13 @@ This project is an end-to-end application, using the Shape Up metholodogy, that 
 
 - [archiveso](#archiveso)
 - [Things to learn and research](#things-to-learn-and-research)
+- [Place, Affordance, Connection](#place-affordance-connection)
 - [Shaping](#shaping)
 - [Building](#building)
+- [Limitation](#limitation)
 - [Methodology](#methodology)
 - [Project Structure](#project-structure)
+- [Troubleshooting](#troubleshooting)
 - [Reference](#reference)
 
 <!-- /TOC -->
@@ -33,6 +36,16 @@ In no particular order, my plan is to use the following resources to learn and r
 | E-Book: Shape Up | Ryan Singer | Basecamp 2021 [Sing2021]
 | [Lowdefy Documentation](https://docs.lowdefy.com/introduction) | Lowdefy | 2022 [Lowd2022]
 | [Python API Usage - ArchiveBox Documentation](https://docs.archivebox.io/en/latest/Usage.html#python-api-usage) | ArchiveBox | 2022 [Arch2022]
+
+# Place, Affordance, Connection
+
+* Places users can navigate
+  * Lowdefy app e.g. `https://archiveso.netlify.app`
+  * Python Flask server (with cloudflared as a service) e.g. `https://archiveso.markit.work` 
+  * Docker Hub e.g. `https://hub.docker.com/repository/docker/dennislwm/archiveso`
+  
+* Affordance users can act
+  * Docker pull `docker pull dennislwm/archiveso:latest`
 
 ---
 # Shaping
@@ -61,17 +74,27 @@ We set a time constraint of 9 workdays, for shaping, and an additional 9 workday
   - [Workflows](doc/shape05.md#workflows)
   - [Sequential job execution with dependency](doc/shape05.md#sequential-job-execution-with-dependency)
   - [Create an access token for Docker Hub](doc/shape05.md#create-an-access-token-for-docker-hub)
-- [ ] [Create a front-end for our web service](doc/shape06.md#create-a-lowdefy-front-end-for-our-web-service) (2)
+- [X] [Create a front-end for our web service](doc/shape06.md#create-a-lowdefy-front-end-for-our-web-service) (2)
   - [Lowdefy Structure](doc/shape06.md#lowdefy-structure)
   - [Deploy to Netlify](doc/shape06.md#deploy-to-netlify)
     - [Requirements](doc/shape06.md#requirements)
     - [Running on a Local Server](doc/shape06.md#running-on-a-local-server)
-- [ ] Expose our web app using Cloudflare Tunnel (1)
+- [X] [Expose our web app using Cloudflare Tunnel](doc/shape07.md#expose-our-web-app-using-cloudflare-tunnel) (1)
+  - [Prerequisites](doc/shape07.md#prerequisites)
+  - [Deploy container on local workstation](doc/shape07.md#deploy-container-on-local-workstation)
+  - [Set up cloudflared](doc/shape07.md#set-up-cloudflared)
+  - [Run cloudflared](doc/shape07.md#run-cloudflared)
 
-This project started on 26-Jan-2022 and is a work-in-progress. The expected completion date is 24-Feb-2022, with an expected shaping completion at 11-Feb-2022 (includes a 2-day cooldown).
+This project started on 26-Jan-2022 and the shaping cycle was completed on 8-Feb-2022 (8 days). The expected completion date for building is 24-Feb-2022, which includes a 2-day cooldown period.
 
 ---
 # Building
+
+---
+# Limitation
+
+* The CI pipeline does not perform the last mile delivery, i.e deploy the Docker container Python Flask server app after it has been tagged and pushed to Docker Hub. The Continuous Delivery ["CD"] pipeline is not implemented. 
+* Currently, I'm hosting the Docker container on my local workstation, i.e. http://localhost:8080 and using Cloud Tunnel to access it via https://archiveso.mydomain.com.
 
 ---
 # Methodology
@@ -110,6 +133,18 @@ root
    +- test/
 +- .circleci/                                 <-- Holds CircleCI files
    |- config.yml                              <-- Config file for CI pipeline implementation
++- front/                                     <-- Holds Lowdefy front-end static files
+   |- lowdefy.yaml                            <-- YAML file for Lowdefy root schema
+```
+
+# Troubleshooting
+
+1. Argo Tunnel error
+
+Your cloudflared tunnel is not running as a service.
+
+```sh
+cloudflared tunnel --config ~/.cloudflared/config-archiveso.yml run
 ```
 
 # Reference

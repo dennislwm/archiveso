@@ -6,7 +6,7 @@ requests:
     type: AxiosHttp
     connectionId: conn_my_api
     properties:
-      url: /articles?top=1
+      url: /
 
 events:
   onEnter:
