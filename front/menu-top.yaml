@@ -1,14 +1,15 @@
+# You can customize each menu icon at https://docs.lowdefy.com/Menu.
 id: menu_top
 links:
-  - id: menulink_get_status
-    type: MenuLink
-    properties:
-      icon: AlertOutlined
-      title: Get status
-    pageId: page_get_status
   - id: menulink_welcome
     type: MenuLink
     properties:
       icon: HomeOutlined
       title: Home
-    pageId: page_welcome
+    pageId: page_post_url
+  - id: menulink_get_status
+    type: MenuLink
+    properties:
+      icon: InfoCircleFilled
+      title: About
+    pageId: page_get_status

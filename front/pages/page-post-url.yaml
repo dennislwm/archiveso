@@ -1,8 +1,11 @@
-id: page_welcome
+id: page_post_url
 type: PageHeaderMenu
 properties:
-  title: Welcome
+  title: Add URL(s)
 areas:
+  header:
+    blocks:
+      - _ref: components/user-avatar.yaml
   content:
     justify: center
     blocks:

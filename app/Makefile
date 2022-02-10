@@ -1,6 +1,6 @@
-.PHONY: default install_new install_pipfile run shell shell_clean test test_verbose
+.PHONY: default docker_build docker_clean docker_run docker_prod docker_stop docker_tunnel front_dev install_new install_pipfile run shell shell_clean test test_verbose
 
-default: test
+default: run_prod
 
 docker_build: install_freeze
 	DOCKER_BUILDKIT=1 docker build -t archiveso .
@@ -10,6 +10,21 @@ docker_clean:
 
 docker_run: docker_build docker_clean
 	docker run --rm -d -p 80:8080 --name=objArchiveso archiveso
+
+docker_prod: docker_stop
+	docker run -p 8080:8080 -d --rm --name objArchiveso dennislwm/archiveso:latest
+
+docker_stop:
+	docker container stop objArchiveso
+
+docker_tunnel: 
+	cloudflared tunnel --config ~/.cloudflared/config-archiveso.yml run
+
+front_build:
+	cd ../front/ && npx lowdefy@latest build
+
+front_dev: docker_prod front_build
+	cd ../front/ && npx lowdefy@latest dev
 
 install_freeze:
 	pip3 install pipreqs
