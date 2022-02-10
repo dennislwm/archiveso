@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 archivebox = "==0.6.2"
 flask = "==1.0.2"
+flask-httpauth = "==4.5.0"
+werkzeug = "==2.0.2"
 
 [dev-packages]
 pytest = "==6.2.4"

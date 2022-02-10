@@ -4,4 +4,7 @@ services:
   # Pipeline actions
   archiveso:
     image: archiveso:latest
+    environment:
+      - LOWDEFY_SECRET_API_USERNAME
+      - LOWDEFY_SECRET_API_PASSWORD
     entrypoint: /usr/local/bin/prospector

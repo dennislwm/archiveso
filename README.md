@@ -146,7 +146,12 @@ This project started on 26-Jan-2022 and the shaping cycle was completed on 8-Feb
   - [Create a MongoDB cluster](doc/build01.md#create-a-mongodb-cluster)
   - [Create an Auth0 OpenID Connect provider](doc/build01.md#create-an-auth0-openid-connect-provider)
   - [Secure the Auth0 connections](doc/build01.md#secure-the-auth0-connections)
-- [ ] Python Flask server tokenization (1)
+- [X] [Python Flask server authentication](doc/build02.md#python-flask-server-authentication) (1)
+  - [HTTP Basic Authentication](doc/build02.md#http-basic-authentication)
+  - [Requirements](doc/build02.md#requirements)
+  - [Set up authorization in the Lowdefy app](doc/build02.md#set-up-authorization-in-the-lowdefy-app)
+  - [Protect the Python Flask server routes with HTTP Basic authentication](doc/build02.md#protect-the-python-flask-server-routes-with-http-basic-authentication)
+  - [Retrieve secrets during test and run](doc/build02.md#retrieve-secrets-during-test-and-run)
 
 This steps are repeatable, i.e. expose an endpoint and build a page to allow user interaction.
 - [ ] Build a Lowdefy page to allow user interaction (1)
@@ -231,3 +236,8 @@ The following resources were used as a single-use reference.
 | [Build and Deploy only on PR request Accept](https://discuss.circleci.com/t/build-and-deploy-only-on-pr-request-accept/38846) | CircleCI | 2021 [Circ2021]
 | [Using CircleCI workflows to replicate Docker Hub automated builds](https://circleci.com/blog/using-circleci-workflows-to-replicate-docker-hub-automated-builds/) | Jonathan Cardoso | 2020 [Card2020]
 | GitHub Repo: [lowdefy-example-openid-connect](https://github.com/lowdefy/lowdefy-example-openid-connect) | lowdefy | 2021 [Lowd2021]
+| [Developing RESTful APIs with Python and Flask](https://auth0.com/blog/developing-restful-apis-with-python-and-flask/) | Bruno Krebs | 2021 [Kreb2021]
+| [Building a RESTful Blog APIs using python and flask - Part 2](https://www.codementor.io/@olawalealadeusi896/building-a-restful-blog-apis-using-python-and-flask-part-2-l9y8awusp) | Olawale Aladeusi | 2018 [Alad2018]
+| [How to Handle JWTs in Python](https://auth0.com/blog/how-to-handle-jwt-in-python/) | Jessica Temporal | 2021 [Temp2021]
+| [Flask-HTTPAuth documentation](https://flask-httpauth.readthedocs.io/en/latest/) | Miguel Grinberg | 2022 [Grin2022]
+| [Docker ARG, ENV and .env - a Complete Guide](https://vsupalov.com/docker-arg-env-variable-guide/) | Vladislav Supalov | 2022 [Supa2022]

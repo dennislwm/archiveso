@@ -9,10 +9,10 @@ docker_clean:
 	docker image prune -f
 
 docker_run: docker_build docker_clean
-	docker run --rm -d -p 80:8080 --name=objArchiveso archiveso
+	docker run --rm -d -p 8080:8080 --env-file=../front/.env --name=objArchiveso archiveso
 
 docker_prod: docker_stop
-	docker run -p 8080:8080 -d --rm --name objArchiveso dennislwm/archiveso:latest
+	docker run --rm -d -p 8080:8080 --env-file=../front/.env --name objArchiveso dennislwm/archiveso:latest
 
 docker_stop:
 	docker container stop objArchiveso
@@ -23,7 +23,10 @@ docker_tunnel:
 front_build:
 	cd ../front/ && npx lowdefy@latest build
 
-front_dev: docker_prod front_build
+front_dev: docker_run front_build
+	cd ../front/ && npx lowdefy@latest dev
+
+front_prod: docker_prod front_build
 	cd ../front/ && npx lowdefy@latest dev
 
 install_freeze:
@@ -33,14 +36,14 @@ install_freeze:
 	pip3 uninstall -y pipreqs
 	
 install_new: 
-	pipenv install archivebox==0.6.2 flask==1.0.2
+	pipenv install archivebox==0.6.2 flask==1.0.2 flask_httpauth==4.5.0 Werkzeug==2.0.2
 	pipenv install --dev pytest==6.2.4 pytest-flask==1.2.0
 
 install_pipfile:
 	pipenv install --dev
 
 run: 
-	FLASK_ENV=development FLASK_APP=main PYTHONPATH=./:./src/archiveso python3 -m flask run --host=0.0.0.0 --port=8080
+	set -a && source ../front/.env && set +a && FLASK_ENV=development FLASK_APP=main PYTHONPATH=./:./src/archiveso python3 -m flask run --host=0.0.0.0 --port=8080
 
 shell:
 	pipenv shell
