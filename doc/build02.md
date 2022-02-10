@@ -134,8 +134,8 @@ The `docker-compose.yml` file accepts the environment variables from the host, w
 services:
   archiveso:
     image: archiveso:latest
-      environment:
-        - LOWDEFY_SECRET_API_USERNAME
-        - LOWDEFY_SECRET_API_PASSWORD
+    environment:
+      - LOWDEFY_SECRET_API_USERNAME
+      - LOWDEFY_SECRET_API_PASSWORD
       ...
 ```
