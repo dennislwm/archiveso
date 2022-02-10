@@ -22,6 +22,11 @@ connections:
     type: AxiosHttp
     properties:
       baseURL: https://archiveso.markit.work
+      auth:
+        username:
+          _secret: API_USERNAME
+        password:
+          _secret: API_PASSWORD
 
 menus:
   - _ref: menu-top.yaml
