@@ -15,6 +15,8 @@ This project is an end-to-end application, using the Shape Up metholodogy, that 
 - [archiveso](#archiveso)
 - [Things to learn and research](#things-to-learn-and-research)
 - [Place, Affordance, Connection](#place-affordance-connection)
+- [Usage](#usage)
+  - [Prerequisites](#prerequisites)
 - [Shaping](#shaping)
 - [Building](#building)
 - [Limitation](#limitation)
@@ -46,6 +48,50 @@ In no particular order, my plan is to use the following resources to learn and r
   
 * Affordance users can act
   * Docker pull `docker pull dennislwm/archiveso:latest`
+
+---
+# Usage
+
+## Prerequisites
+
+Before running the Lowdefy app on your local workstation, you need the following:
+
+- Configure a [MongoDB cluster](doc/build01.md#create-a-mongodb-cluster).
+- Configure an [OpenID Connect provider](doc/build01.md#create-an-auth0-openid-connect-provider).
+- Configure the [Lowdefy environment](doc/build01.md#configure-the-lowdefy-environment).
+
+<details>
+    <summary>Click here to <strong>get started.</strong></summary>
+
+1. Open a new terminal and run a Docker container with the Python Flask server on your local workstation. This command pulls the image from Docker Hub if it doesn't exist.
+
+```sh
+docker run --rm -d -p 8080:8080 --name objArchiveso dennislwm/archiveso:latest
+```
+
+2. Run the `cloudflared` tunnel to expose your Docker container on port `8080` to a custom domain, e.g. `https://archiveso.mydomain.com`. 
+
+```sh
+cloudflared tunnel --config ~/.cloudflared/config-archiveso.yml run
+```
+
+> The tunnel remains opened as long as your don't terminate (CTRL-C) the connection.
+
+3. Open a new terminal and build the Lowdefy app.
+
+```sh
+cd front
+npx lowdefy@latest build
+```
+
+4. Run the Lowdefy app on your local workstation.
+
+```sh
+npx lowdefy@latest dev
+```
+</details>
+
+![Getting Started](img/usage.gif)
 
 ---
 # Shaping
@@ -89,6 +135,23 @@ This project started on 26-Jan-2022 and the shaping cycle was completed on 8-Feb
 
 ---
 # Building
+
+- [X] [Lowdefy user authentication](doc/build01.md#lowdefy-user-authentication) (1)
+  - [Requirements](doc/build01.md#requirements)
+  - [Configure the Lowdefy environment](doc/build01.md#configure-the-lowdefy-environment)
+  - [Modify Lowdefy root schema](doc/build01.md#modify-lowdefy-root-schema)
+  - [Build Lowdefy action pages](doc/build01.md#build-lowdefy-action-pages)
+  - [Build Lowdefy reusable components](doc/build01.md#build-lowdefy-reusable-components)
+  - [Build a Javascript login script](doc/build01.md#build-a-javascript-login-script)
+  - [Create a MongoDB cluster](doc/build01.md#create-a-mongodb-cluster)
+  - [Create an Auth0 OpenID Connect provider](doc/build01.md#create-an-auth0-openid-connect-provider)
+  - [Secure the Auth0 connections](doc/build01.md#secure-the-auth0-connections)
+- [ ] Python Flask server tokenization (1)
+
+This steps are repeatable, i.e. expose an endpoint and build a page to allow user interaction.
+- [ ] Build a Lowdefy page to allow user interaction (1)
+- [ ] Build an API endpoint to execute an ArchiveBox CLI command and return its response (1)
+- [ ] Build test cases to verify the API endpoint (1)
 
 ---
 # Limitation
@@ -135,6 +198,9 @@ root
    |- config.yml                              <-- Config file for CI pipeline implementation
 +- front/                                     <-- Holds Lowdefy front-end static files
    |- lowdefy.yaml                            <-- YAML file for Lowdefy root schema
+   +- auth0/
+   +- components/                             <-- Holds YAML files for Lowdefy reusable components
+   +- pages/                                  <-- Holds YAML files for Lowdefy pages
 ```
 
 # Troubleshooting

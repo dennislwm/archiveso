@@ -1,6 +1,22 @@
 lowdefy: 3.23.2
 name: archiveso
 
+config:
+  # Always direct users to the login page, which will redirect them to the correct page.
+  homePageId: page_login
+  auth:
+    openId:
+      # Logout redirect URI for Auth0
+      logoutRedirectUri: '{{ openid_domain }}/v2/logout?returnTo={{ host }}/logged-out&client_id={{ client_id }}'
+    pages:
+      # All pages in the app can be seen only by logged in users
+      protected: true
+      # except for the following pages:
+      public:
+        - '404'
+        - logged-out
+        - page_login
+
 connections:
   - id: conn_my_api
     type: AxiosHttp
@@ -11,5 +27,9 @@ menus:
   - _ref: menu-top.yaml
 
 pages:
-  - _ref: page-get-status.yaml
-  - _ref: page-welcome.yaml
+  - _ref: pages/404.yaml
+  - _ref: pages/page-get-status.yaml
+  - _ref: pages/page-logged-out.yaml
+  - _ref: pages/page-login.yaml
+  - _ref: pages/page-profile.yaml
+  - _ref: pages/page-post-url.yaml
