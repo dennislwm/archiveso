@@ -8,13 +8,14 @@
 [![dennislwm](https://circleci.com/gh/dennislwm/archiveso.svg?style=shield)](https://app.circleci.com/pipelines/github/dennislwm/archiveso)
 ![GitHub last commit](https://img.shields.io/github/last-commit/dennislwm/archiveso?color=red&style=plastic)
 
-This project is an end-to-end application, using the Shape Up metholodogy, that consist of (1) static no-code front-end; (2) stateless back-end that serves request to and from an instance of ArchiveBox; and (3) CI pipeline to test and deploy a custom Docker image.
+This project is an end-to-end application that consist of (1) static no-code front-end; (2) stateless back-end that serves request to and from an instance of ArchiveBox; and (3) CI pipeline to test and deploy a custom Docker image.
 
 <!-- TOC -->
 
 - [archiveso](#archiveso)
 - [Things to learn and research](#things-to-learn-and-research)
 - [Place, Affordance, Connection](#place-affordance-connection)
+- [Workflow](#workflow)
 - [Usage](#usage)
   - [Prerequisites](#prerequisites)
 - [Shaping](#shaping)
@@ -48,6 +49,22 @@ In no particular order, my plan is to use the following resources to learn and r
   
 * Affordance users can act
   * Docker pull `docker pull dennislwm/archiveso:latest`
+
+---
+# Workflow
+
+This project uses several methods and products to optimize your workflow.
+- Use a version control system (**GitHub**) to track your changes and collaborate with others.
+- Use a static analyzer (**prospector**) to help write your clean code.
+- Use a build tool (**Makefile**) to automate your development tasks.
+- Use a package manager (**Pipenv**) to manage your dependencies.
+- Use a testing framework (**pytest**) to automate your testing.
+- Use a containerization platform (**Docker**) to run your application in any environment.
+- Use a continuous integration pipeline (**CircleCI**) to automate your static analysis and image deployment.
+- Use an artifactory (**Docker Hub**) to store and pull your image.
+- Use a low-code framework (**Lowdefy**) to build your dashboard.
+- Use a continuous deployment infrastructure (**Netlify**) to automate your front-end hosting.
+- Use a secured tunnel (**cloudflared**) to manage your back-end locally.
 
 ---
 # Usage
@@ -153,10 +170,13 @@ This project started on 26-Jan-2022 and the shaping cycle was completed on 8-Feb
   - [Protect the Python Flask server routes with HTTP Basic authentication](doc/build02.md#protect-the-python-flask-server-routes-with-http-basic-authentication)
   - [Retrieve secrets during test and run](doc/build02.md#retrieve-secrets-during-test-and-run)
 
-This steps are repeatable, i.e. expose an endpoint and build a page to allow user interaction.
-- [ ] Build a Lowdefy page to allow user interaction (1)
-- [ ] Build an API endpoint to execute an ArchiveBox CLI command and return its response (1)
-- [ ] Build test cases to verify the API endpoint (1)
+This steps are repeatable, i.e. expose and test an endpoint and build a page to allow user interaction.
+- [ ] [Build a Lowdefy page to allow user interaction](doc/build03.md#build-a-lowdefy-page-to-allow-user-interaction) (1)
+  - [Lowdefy Guidelines](doc/build03.md#lowdefy-guidelines)
+    - [Container](doc/build03.md#container)
+    - [Input](doc/build03.md#input)
+    - [Request](doc/build03.md#request)
+- [ ] Build and test an API endpoint to execute an ArchiveBox CLI command and return its response (2)
 
 ---
 # Limitation
@@ -241,3 +261,5 @@ The following resources were used as a single-use reference.
 | [How to Handle JWTs in Python](https://auth0.com/blog/how-to-handle-jwt-in-python/) | Jessica Temporal | 2021 [Temp2021]
 | [Flask-HTTPAuth documentation](https://flask-httpauth.readthedocs.io/en/latest/) | Miguel Grinberg | 2022 [Grin2022]
 | [Docker ARG, ENV and .env - a Complete Guide](https://vsupalov.com/docker-arg-env-variable-guide/) | Vladislav Supalov | 2022 [Supa2022]
+| [A ‘Hello World’ GitOps Example Walkthrough](https://zwischenzugs.com/2021/07/31/a-hello-world-gitops-example-walkthrough/) | Ian Miell | 2022 [Miel2022]
+| GitHub Repo: [lowdefy-example-case-management](https://github.com/lowdefy/lowdefy-example-case-management) | lowdefy | 2021

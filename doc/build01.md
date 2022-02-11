@@ -91,7 +91,7 @@ pages:
   - _ref: pages/page-logged-out.yaml
   - _ref: pages/page-login.yaml
   - _ref: pages/page-profile.yaml
-  - _ref: pages/page-post-url.yaml
+  - _ref: pages/page-home.yaml
 ```
 
 # Build Lowdefy action pages
@@ -154,7 +154,7 @@ events:
         _eq:
           - _user: sub
           - null
-      params: page_post_url
+      params: page_home
 blocks:
   - id: box
     type: Box
@@ -189,7 +189,7 @@ blocks:
             - id: login
               type: Login
               params:
-                pageId: page_post_url
+                pageId: page_home
 ```
 
 3. Create a file `page-login.yaml` in the path `front/pages/`. Enter the following code:
@@ -216,7 +216,7 @@ events:
         _eq:
           - _user: sub
           - null
-      params: page_post_url
+      params: page_home
     # Call the Login action to log the user in.
     - id: login
       type: Login
@@ -226,7 +226,7 @@ events:
           - null
       params:
         # Redirect to "protected-page" after login is complete.
-        pageId: page_post_url
+        pageId: page_home
 ```
 
 4. Create a file `page-profile.yaml` in the path `front/pages/`. Enter the following code:

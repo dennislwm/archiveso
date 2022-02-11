@@ -1,0 +1,5 @@
+id: http_get_status
+type: AxiosHttp
+connectionId: conn_my_api
+properties:
+  url: /

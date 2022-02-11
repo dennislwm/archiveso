@@ -1,0 +1,8 @@
+id: http_post_url
+type: AxiosHttp
+connectionId: conn_my_api
+properties:
+  url: /api/archiveso
+  method: post
+  data:
+    _state: textarea_url

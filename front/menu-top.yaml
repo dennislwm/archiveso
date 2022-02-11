@@ -6,6 +6,12 @@ links:
     properties:
       icon: HomeOutlined
       title: Home
+    pageId: page_home
+  - id: menulink_post_url
+    type: MenuLink
+    properties:
+      icon: FileAddOutlined
+      title: Add URL
     pageId: page_post_url
   - id: menulink_get_status
     type: MenuLink

@@ -64,6 +64,10 @@ connections:
           _secret: API_PASSWORD
 ```
 
+3. Configure your [Netlify](https://app.netlify.com) deployment. Click **Site Settings** --> **Build & deploy**.
+
+Under the **Environment** section, add the environment variables for your Lowdefy app.
+
 # Protect the Python Flask server routes with HTTP Basic authentication
 
 1. Edit the `main.py` file in the path `app/`. Modify the source code as follows:

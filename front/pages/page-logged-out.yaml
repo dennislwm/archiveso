@@ -23,7 +23,7 @@ events:
         _eq:
           - _user: sub
           - null
-      params: page_post_url
+      params: page_home
 blocks:
   - id: box
     type: Box
@@ -58,4 +58,4 @@ blocks:
             - id: login
               type: Login
               params:
-                pageId: page_post_url
+                pageId: page_home

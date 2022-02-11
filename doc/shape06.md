@@ -224,6 +224,7 @@ Configure your Netlify deployment.
 * Set your base directory to `front`.
 * Set your build command to `npx lowdefy@latest build-netlify`.
 * Set your publish directory to `front/.lowdefy/publish`.
+* Under the **Environment** section, add the environment variables for your Lowdefy app.
 
 **Step 4**
 

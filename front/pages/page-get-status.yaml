@@ -2,12 +2,8 @@ id: page_get_status
 type: PageHeaderMenu
 
 requests:
-  - id: http_get_status
-    type: AxiosHttp
-    connectionId: conn_my_api
-    properties:
-      url: /
-
+  - _ref: components/request-get-status.yaml
+  
 areas:
   header:
     blocks:
@@ -25,10 +21,7 @@ blocks:
     properties:
       content:
         _string.concat:
-          - |
-            ```yaml
-          - _yaml.stringify:
-              - _log:
-                  _request: http_get_status
-          - |
-            ```
+          - _log:
+              _string.concat:
+                - 'archiveso '
+                - _request: http_get_status.data

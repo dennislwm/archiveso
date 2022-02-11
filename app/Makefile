@@ -5,7 +5,7 @@ default: run_prod
 docker_build: install_freeze
 	DOCKER_BUILDKIT=1 docker build -t archiveso .
 
-docker_clean:
+docker_clean: docker_stop
 	docker image prune -f
 
 docker_run: docker_build docker_clean
@@ -14,8 +14,9 @@ docker_run: docker_build docker_clean
 docker_prod: docker_stop
 	docker run --rm -d -p 8080:8080 --env-file=../front/.env --name objArchiveso dennislwm/archiveso:latest
 
+# ignore errors with prefix '-'
 docker_stop:
-	docker container stop objArchiveso
+	-docker container stop objArchiveso
 
 docker_tunnel: 
 	cloudflared tunnel --config ~/.cloudflared/config-archiveso.yml run
