@@ -19,7 +19,7 @@ events:
         _eq:
           - _user: sub
           - null
-      params: page_post_url
+      params: page_home
     # Call the Login action to log the user in.
     - id: login
       type: Login
@@ -29,4 +29,4 @@ events:
           - null
       params:
         # Redirect to "protected-page" after login is complete.
-        pageId: page_post_url
+        pageId: page_home

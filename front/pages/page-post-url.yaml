@@ -1,5 +1,9 @@
 id: page_post_url
 type: PageHeaderMenu
+
+requests:
+  - _ref: components/request-get-status.yaml
+
 properties:
   title: Add URL(s)
 areas:
@@ -9,40 +13,52 @@ areas:
   content:
     justify: center
     blocks:
-      - id: content_card
+      - id: card_content
         type: Card
         style:
           maxWidth: 800
         blocks:
-          - id: content
-            type: Result
+          - id: title_main
+            type: Title
             properties:
-              title: Welcome to your Lowdefy app
-              subTitle: We are excited to see what you are going to build
-              icon:
-                name: HeartTwoTone
-                color: '#f00'
-            areas:
-              extra:
-                blocks:
-                  - id: docs_button
-                    type: Button
-                    properties:
-                      size: large
-                      title: Let's build something
-                      color: '#1890ff'
-                    events:
-                      onClick:
-                        - id: link_to_docs
-                          type: Link
-                          params:
-                            url: https://docs.lowdefy.com
-                            newTab: true
-  footer:
-    blocks:
-      - id: footer
-        type: Paragraph
-        properties:
-          type: secondary
-          content: |
-            Made by a Lowdefy 🤖
+              content: Add URL
+              level: 3
+          # validate doc: https://docs.lowdefy.com/blocks
+          - id: textarea_url
+            type: TextArea
+            required: true
+            validate:
+              - message: Please provide a valid URL.
+                status: error
+                pass:
+                  _regex: https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
+            properties:
+              allowClear: true
+              autoFocus: true
+              autoSize: true
+              label:
+                title: URL(s) separated by spaces
+          - id: button_submit
+            type: Button
+            style:
+              marginTop: 8
+            layout:
+              span: 6
+            properties:
+              size: large
+              shape: round
+              title: Add
+              type: primary
+              block: true
+            events:
+              # issue: validate a single input doesn't appear to work
+              onClick:
+                - id: action_validate_all
+                  type: Validate
+                - id: action_request
+                  type: Request
+                  params: http_get_status
+                - id: action_reset
+                  type: Reset
+                - id: action_message
+                  type: Message

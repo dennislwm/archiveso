@@ -37,4 +37,5 @@ pages:
   - _ref: pages/page-logged-out.yaml
   - _ref: pages/page-login.yaml
   - _ref: pages/page-profile.yaml
+  - _ref: pages/page-home.yaml
   - _ref: pages/page-post-url.yaml
