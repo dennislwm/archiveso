@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  # Pipeline actions
+  archiveso:
+    image: archiveso:latest
+    environment:
+      - LOWDEFY_SECRET_API_USERNAME
+      - LOWDEFY_SECRET_API_PASSWORD
+      - ARCHIVEBOX_PATH=./
+    entrypoint: /usr/local/bin/pytest

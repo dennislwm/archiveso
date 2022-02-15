@@ -1,8 +1,9 @@
 import os
 
-from flask import Flask
+from flask import Flask, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
+from clsArchiveso import clsArchiveso
 
 def create_app():
     app = Flask(__name__)
@@ -10,6 +11,8 @@ def create_app():
 
     API_USERNAME = os.getenv('LOWDEFY_SECRET_API_USERNAME', '')
     API_PASSWORD = os.getenv('LOWDEFY_SECRET_API_PASSWORD', '')
+    ARCHIVEBOX_PATH = os.getenv('ARCHIVEBOX_PATH', './')
+    ab = clsArchiveso(ARCHIVEBOX_PATH)
 
     users = {
         API_USERNAME: generate_password_hash(API_PASSWORD),
@@ -24,7 +27,15 @@ def create_app():
     @app.route("/")
     @auth.login_required
     def root():
-        return "App-version: 0.2.0"
+        return "App-version: " + ab.get_version() + " | CLI-version: " + ab.get_cli_version()
+
+    @app.route("/api/archiveso", methods = ['POST'])
+    @auth.login_required
+    def post_url():
+        strUrl = request.form.get('url')
+        if not strUrl:
+            return "Empty strUrl", 400
+        return ab.add_url(strUrl)
 
     return app
 
