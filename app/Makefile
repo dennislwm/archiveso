@@ -58,7 +58,7 @@ install_pipfile:
 	pipenv install --dev
 
 run: docker_stop
-	set -a && source ../front/.env && set +a && ARCHIVEBOX_PATH=/Users/dennislwm/Downloads/asset-box FLASK_ENV=development FLASK_APP=main PYTHONPATH=./:./src/archiveso python3 -m flask run --host=0.0.0.0 --port=8080
+	set -a && source ../front/.env && set +a && ARCHIVEBOX=/Users/dennislwm/Downloads/asset-box FLASK_ENV=development FLASK_APP=main PYTHONPATH=./:./src/archiveso python3 -m flask run --host=0.0.0.0 --port=8080
 
 shell:
 	pipenv shell

@@ -46,7 +46,7 @@ In our example, we are building an API endpoint that allows users to add URL(s) 
 - Archivebox index not found
 - Empty user form
 
-In our first test case, with reference to our connection where users are taken to, this fails if the `path/to/archivebox` is not configured as an environment variable `ARCHIVEBOX_PATH`.
+In our first test case, with reference to our connection where users are taken to, this fails if the `path/to/archivebox` is not configured as an environment variable `ARCHIVEBOX`.
 
 The second test case, with reference to our places where users can navigate, this fails if the user form is empty and the body of the `POST` method does not contain the `url` field.
 
@@ -127,7 +127,7 @@ install_new:
 	pipenv install --dev pytest==6.2.4 pytest-flask==1.2.0 requests==2.27.1
 ...
 run: 
-	set -a && source ../front/.env && set +a && ARCHIVEBOX_PATH=/Users/dennislwm/Downloads/asset-box FLASK_ENV=development FLASK_APP=main PYTHONPATH=./:./src/archiveso python3 -m flask run --host=0.0.0.0 --port=8080
+	set -a && source ../front/.env && set +a && ARCHIVEBOX=/Users/dennislwm/Downloads/asset-box FLASK_ENV=development FLASK_APP=main PYTHONPATH=./:./src/archiveso python3 -m flask run --host=0.0.0.0 --port=8080
 ...
 ```
 
@@ -143,7 +143,6 @@ services:
     environment:
       - LOWDEFY_SECRET_API_USERNAME
       - LOWDEFY_SECRET_API_PASSWORD
-      - ARCHIVEBOX_PATH=./
     entrypoint: /usr/local/bin/pytest
 ```
 
@@ -160,7 +159,7 @@ jobs:
           command: cd app && docker-compose -f docker-compose-test.yml up -d
 ```
 
-The test cases are configured to pass without a valid `ARCHIVEBOX_PATH`, as this environment variable is set both in development and production, but not in the testing stage.
+The test cases are configured to pass without a valid `ARCHIVEBOX`, as this environment variable is set both in development and production, but not in the testing stage.
 
 # Build the API endpoint
 
@@ -187,7 +186,7 @@ from clsArchiveso import clsArchiveso
 def create_app():
     ...
     API_PASSWORD = os.getenv('LOWDEFY_SECRET_API_PASSWORD', '')
-    ARCHIVEBOX_PATH = os.getenv('ARCHIVEBOX_PATH', './')
+    ARCHIVEBOX_PATH = os.getenv('ARCHIVEBOX', './')
     ab = clsArchiveso(ARCHIVEBOX_PATH)
     ...
     @app.route("/api/archiveso", methods = ['POST'])

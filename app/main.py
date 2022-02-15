@@ -12,7 +12,7 @@ def create_app():
 
     API_USERNAME = os.getenv('LOWDEFY_SECRET_API_USERNAME', '')
     API_PASSWORD = os.getenv('LOWDEFY_SECRET_API_PASSWORD', '')
-    ARCHIVEBOX_PATH = os.getenv('ARCHIVEBOX_PATH', './')
+    ARCHIVEBOX_PATH = os.getenv('ARCHIVEBOX', './')
     ab = clsArchiveso(ARCHIVEBOX_PATH)
 
     users = {
