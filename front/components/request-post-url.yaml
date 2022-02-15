@@ -5,4 +5,4 @@ properties:
   url: /api/archiveso
   method: post
   data:
-    _state: textarea_url
+    _state: state_post_url

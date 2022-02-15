@@ -2,7 +2,7 @@ id: page_post_url
 type: PageHeaderMenu
 
 requests:
-  - _ref: components/request-get-status.yaml
+  - _ref: components/request-post-url.yaml
 
 properties:
   title: Add URL(s)
@@ -52,12 +52,19 @@ areas:
               block: true
             events:
               # issue: validate a single input doesn't appear to work
+              # request.data : {"url": "textarea_url"}
               onClick:
                 - id: action_validate_all
                   type: Validate
+                - id: set_request
+                  type: SetState
+                  params:
+                    state_post_url:
+                      url:
+                        _state: textarea_url
                 - id: action_request
                   type: Request
-                  params: http_get_status
+                  params: http_post_url
                 - id: action_reset
                   type: Reset
                 - id: action_message
