@@ -28,6 +28,7 @@ Base time: 1 workday (Max: 2)
 - Use a **[Container](https://docs.lowdefy.com/Card)** block to pad spaces to the left and right margins of the content.
 - Use an **[Event](https://docs.lowdefy.com/events-and-actions)** block to trigger when something happens on a page, like loading a page or clicking a button.
 - Use a **[Request](https://docs.lowdefy.com/connections-and-requests)** action to execute a HTTP request.
+- Use a **[SetState](https://docs.lowdefy.com/SetState)** action to set field values in `state` before executing a HTTP POST request.
 - Use a **[Validate](https://docs.lowdefy.com/blocks)** action to provide in-line validation to your inputs.
 - Use an **[Operator](https://docs.lowdefy.com/operators)** keyword to react to data and inputs. Each operator expects arguments with a specific structure.
   - [`_ref`](https://docs.lowdefy.com/_ref) to reference a configuration file, in order to split the Lowdefy configuration into modular files.
@@ -44,6 +45,9 @@ Without a container block, your inputs will span the entire width of the page. Y
 ```yml
 id: page_post_url
 type: PageHeaderMenu
+
+requests:
+  - _ref: components/request-post-url.yaml
 
 properties:
   title: Add URL(s)
@@ -132,6 +136,12 @@ areas:
               onClick:
                 - id: action_validate_all
                   type: Validate
+                - id: set_request
+                  type: SetState
+                  params:
+                    state_post_url:
+                      url:
+                        _state: textarea_url
                 - id: action_request
                   type: Request
                   params: http_get_status
@@ -184,7 +194,7 @@ properties:
   url: /api/archiveso
   method: post
   data:
-    _state: textarea_url
+    _state: state_post_url    
 ```
 
 3. Edit the file `page-get-status.yaml` in the path `front/pages`. Insert the following code at the top as follows:

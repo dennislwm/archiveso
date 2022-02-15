@@ -23,11 +23,11 @@ class clsArchiveso():
     """--------+---------+---------+---------+---------+---------+---------+---------+---------|
     |                                   C O N S T R U C T O R                                  |
     |----------+---------+---------+---------+---------+---------+---------+---------+-------"""
-    def __init__(self, strPath):
+    def __init__(self, strPath='./'):
         #----------------------------
         # initialize class _CONSTANTS
         self._init_meta()
-        os.chdir(strPath)
+        self.STR_ARCHIVEBOX_PATH = strPath
 
     """--------+---------+---------+---------+---------+---------+---------+---------+---------|
     |                                 C L A S S   M E T H O D S                                |
@@ -46,7 +46,7 @@ class clsArchiveso():
     def add_url(self, strUrl):
         try:
             strCmd = 'archivebox add ' + strUrl
-            strResult = subprocess.check_output(strCmd, stderr=subprocess.STDOUT, shell=True)
+            strResult = subprocess.check_output(strCmd, cwd=self.STR_ARCHIVEBOX_PATH, stderr=subprocess.STDOUT, shell=True)
         except subprocess.CalledProcessError as e:
             strOutput = e.output.decode('utf-8')
             # directory not found

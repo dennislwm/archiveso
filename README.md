@@ -154,7 +154,7 @@ We set a time constraint of 9 workdays, for shaping, and an additional 9 workday
   - [Set up cloudflared](doc/shape07.md#set-up-cloudflared)
   - [Run cloudflared](doc/shape07.md#run-cloudflared)
 
-This project started on 26-Jan-2022 and the shaping cycle was completed on 8-Feb-2022 (8 days). The expected completion date for building is 24-Feb-2022, which includes a 2-day cooldown period.
+This project started on 26-Jan-2022 and has been completed on 15-Feb-2022 (13 days), which was ahead of the expected completion date on 24-Feb-2022. The shaping cycle was completed on 8-Feb-2022 (8 days), while the building cycle took 5 days.
 
 ---
 # Building
@@ -177,12 +177,12 @@ This project started on 26-Jan-2022 and the shaping cycle was completed on 8-Feb
   - [Retrieve secrets during test and run](doc/build02.md#retrieve-secrets-during-test-and-run)
 
 This steps are repeatable, i.e. expose and test an endpoint and build a page to allow user interaction.
-- [ ] [Build a Lowdefy page to allow user interaction](doc/build03.md#build-a-lowdefy-page-to-allow-user-interaction) (1)
+- [X] [Build a Lowdefy page to allow user interaction](doc/build03.md#build-a-lowdefy-page-to-allow-user-interaction) (1)
   - [Lowdefy Guidelines](doc/build03.md#lowdefy-guidelines)
     - [Container](doc/build03.md#container)
     - [Input](doc/build03.md#input)
     - [Request](doc/build03.md#request)
-- [ ] [Build and test an API endpoint to execute a command and return its response](doc/build04.md#build-and-test-an-api-endpoint-to-execute-a-command-and-return-its-response) (2)
+- [X] [Build and test an API endpoint to execute a command and return its response](doc/build04.md#build-and-test-an-api-endpoint-to-execute-a-command-and-return-its-response) (2)
   - [Test driven development of API endpoint](doc/build04.md#test-driven-development-of-api-endpoint)
   - [Create test case](doc/build04.md#create-test-case)
   - [Configure build](doc/build04.md#configure-build)
@@ -274,3 +274,4 @@ The following resources were used as a single-use reference.
 | [A ‘Hello World’ GitOps Example Walkthrough](https://zwischenzugs.com/2021/07/31/a-hello-world-gitops-example-walkthrough/) | Ian Miell | 2022 [Miel2022]
 | GitHub Repo: [lowdefy-example-case-management](https://github.com/lowdefy/lowdefy-example-case-management) | lowdefy | 2021
 | [How to use Shortcuts on iOS to automatically save link to GitHub as a Reading List](https://antonio081014.medium.com/how-to-use-shortcuts-on-ios-to-automatically-save-link-to-github-as-a-reading-list-59de30182d48) | Yi | 2022
+| GitHub Repo: [A timesheet application built in FastAPI and IDOM](https://github.com/dyvenia/timesheets) | dyvenia | 2022

@@ -1,4 +1,5 @@
 import os
+import json
 
 from flask import Flask, request
 from flask_httpauth import HTTPBasicAuth
@@ -32,7 +33,8 @@ def create_app():
     @app.route("/api/archiveso", methods = ['POST'])
     @auth.login_required
     def post_url():
-        strUrl = request.form.get('url')
+        jsnData = request.data
+        strUrl = json.loads(jsnData)['url']
         if not strUrl:
             return "Empty strUrl", 400
         return ab.add_url(strUrl)

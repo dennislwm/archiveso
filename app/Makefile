@@ -8,11 +8,17 @@ docker_build: install_freeze
 docker_clean: docker_stop
 	docker image prune -f
 
+docker_exec:
+	docker exec -it objArchiveso /bin/bash
+
+docker_logs:
+	docker logs -f objArchiveso
+
 docker_run: docker_build docker_clean
-	docker run --rm -d -p 8080:8080 --env-file=../front/.env --name=objArchiveso archiveso
+	docker run -d -p 8080:8080 --env-file=../front/.env -v /Users/dennislwm/Downloads/asset-box:/data -w /app --name=objArchiveso archiveso:latest
 
 docker_prod: docker_stop
-	set -a && source ../front/.env && set +a && docker run --rm -d -p 8080:8080 --env-file=../front/.env --name objArchiveso dennislwm/archiveso:$${APP_VERSION}
+	docker run -d -p 8080:8080 --env-file=../front/.env -v /Users/dennislwm/Downloads/asset-box:/data -w /app --name objArchiveso dennislwm/archiveso:$${APP_VERSION}
 
 docker_test: docker_build docker_clean
 	docker-compose -f docker-compose.yml up -d
@@ -21,6 +27,7 @@ docker_test: docker_build docker_clean
 # ignore errors with prefix '-'
 docker_stop:
 	-docker container stop objArchiveso
+	-docker container rm objArchiveso
 
 docker_tunnel: 
 	cloudflared tunnel --config ~/.cloudflared/config-archiveso.yml run
@@ -28,7 +35,7 @@ docker_tunnel:
 front_build:
 	cd ../front/ && npx lowdefy@latest build
 
-front_dev: docker_run front_build
+front_dev: front_build
 	cd ../front/ && npx lowdefy@latest dev
 
 front_prod: docker_prod front_build
@@ -50,7 +57,7 @@ install_new:
 install_pipfile:
 	pipenv install --dev
 
-run: 
+run: docker_stop
 	set -a && source ../front/.env && set +a && ARCHIVEBOX_PATH=/Users/dennislwm/Downloads/asset-box FLASK_ENV=development FLASK_APP=main PYTHONPATH=./:./src/archiveso python3 -m flask run --host=0.0.0.0 --port=8080
 
 shell:

@@ -15,4 +15,8 @@ EXPOSE 8080
 ENV FLASK_ENV=development
 ENV FLASK_APP=main
 ENV PYTHONPATH=./:./src/archiveso
+
+RUN useradd archiveso
+USER archiveso
+
 CMD ["python3", "main.py"]

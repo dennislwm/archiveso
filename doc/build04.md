@@ -21,7 +21,7 @@ Base time: 2 workday (Max: 4)
 ```
   .
  . .
-+   .
+.   +
 0-1-2
 ```
 
