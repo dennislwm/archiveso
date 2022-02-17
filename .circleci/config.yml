@@ -40,7 +40,6 @@ jobs:
       - run:
           name: "Publish image to Docker Hub"
           command: |
-              export APP_VERSION=0.3.0
               echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
               docker tag archiveso:latest $DOCKERHUB_USERNAME/archiveso:$APP_VERSION
               docker push $DOCKERHUB_USERNAME/archiveso:$APP_VERSION

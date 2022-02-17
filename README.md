@@ -275,3 +275,4 @@ The following resources were used as a single-use reference.
 | GitHub Repo: [lowdefy-example-case-management](https://github.com/lowdefy/lowdefy-example-case-management) | lowdefy | 2021
 | [How to use Shortcuts on iOS to automatically save link to GitHub as a Reading List](https://antonio081014.medium.com/how-to-use-shortcuts-on-ios-to-automatically-save-link-to-github-as-a-reading-list-59de30182d48) | Yi | 2022
 | GitHub Repo: [A timesheet application built in FastAPI and IDOM](https://github.com/dyvenia/timesheets) | dyvenia | 2022
+| [Argo Tunnel as a service](https://community.cloudflare.com/t/argo-tunnel-as-a-service/242789) | Nuno Diegues | 2021
